@@ -82,10 +82,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\Treeview\MyTreeviewItemStyle.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Logos\LogoResources.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

@@ -8,10 +8,6 @@
              d:DesignHeight="800" 
              d:DesignWidth="300"
              x:Name="myTreeview">
-
-    <UserControl.Resources>
-        <ResourceDictionary Source="/TreeviewTabControlSkeleton.WpfInfrastructure;component/Controls/Treeview/MyTreeviewItemStyle.xaml"/>
-    </UserControl.Resources>
     
     <StackPanel Orientation="Vertical">
         <StackPanel.Resources>
@@ -19,7 +15,7 @@
                 
                 <Setter Property="ItemContainerStyle">
                     <Setter.Value>
-                        <Style TargetType="{x:Type TreeViewItem}" BasedOn="{StaticResource MyTreeviewItemStyle}">
+                        <Style TargetType="{x:Type TreeViewItem}" BasedOn="{StaticResource MetroTreeViewItem}">
                             <Setter Property="IsExpanded" Value="{Binding IsExpanded}"/>
                             <Setter Property="Background" Value="Transparent"/>
                         </Style>
@@ -62,7 +58,7 @@
                             </HierarchicalDataTemplate.Triggers>
 
                             <HierarchicalDataTemplate.ItemContainerStyle>
-                                <Style TargetType="{x:Type TreeViewItem}" BasedOn="{StaticResource MyTreeviewItemStyle}">
+                                <Style TargetType="{x:Type TreeViewItem}" BasedOn="{StaticResource MetroTreeViewItem}">
                                     <Setter Property="IsExpanded" Value="{Binding IsExpanded}"/>
                                     <Setter Property="Background" Value="Transparent"/>
                                 </Style>
