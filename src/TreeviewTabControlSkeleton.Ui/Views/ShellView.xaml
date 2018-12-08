@@ -37,7 +37,7 @@
 
             <TreeView Grid.Column="0" 
                       Grid.Row="1"
-                      ItemsSource="{Binding TreeviewItems, UpdateSourceTrigger=PropertyChanged}"
+                      ItemsSource="{Binding TreeNodes, UpdateSourceTrigger=PropertyChanged}"
                       Style="{StaticResource MyTreeViewStyle}"/>
             
             <StackPanel Grid.Row="1" Grid.Column="1" Background="DimGray">
