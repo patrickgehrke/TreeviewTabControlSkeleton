@@ -1,8 +1,8 @@
 ﻿using Caliburn.Micro;
 using System.Collections.ObjectModel;
 using System.Windows.Media;
-using TreeviewTabControlSkeleton.WpfInfrastructure.Controls.Treeview;
 using TreeviewTabControlSkeleton.WpfInfrastructure.Logos;
+using TreeviewTabControlSkeleton.WpfInfrastructure.ViewModels;
 
 namespace TreeviewTabControlSkeleton.Ui.ViewModels
 {
@@ -14,10 +14,10 @@ namespace TreeviewTabControlSkeleton.Ui.ViewModels
             this.Version = "1.0 DEBUG";
 
             /*will be replaced - dynamic treeview from database */
-            this.TreeviewItems = new ObservableCollection<IMyTreeviewItem>();
-            this.TreeviewItems.Add(new MyTreeviewItem("DASHBOARD", LogoResources.Database, true));
-            this.TreeviewItems[0].Items = new ObservableCollection<IMyTreeviewItem>();
-            this.TreeviewItems[0].Items.Add(new MyTreeviewItem("FIRST CHILD", LogoResources.PlayerProfile, false));
+            this.TreeviewItems = new ObservableCollection<TreeNodeViewModel>();
+            this.TreeviewItems.Add(new TreeNodeViewModel("Dashboard", LogoResources.Database, true));
+            this.TreeviewItems[0].Childs = new ObservableCollection<TreeNodeViewModel>();
+            this.TreeviewItems[0].Childs.Add(new TreeNodeViewModel("first child", LogoResources.PlayerProfile, false));
             
         }
 
@@ -27,6 +27,6 @@ namespace TreeviewTabControlSkeleton.Ui.ViewModels
 
         public string Version { get; set; }
 
-        public ObservableCollection<IMyTreeviewItem> TreeviewItems { get; set; }
+        public ObservableCollection<TreeNodeViewModel> TreeviewItems { get; set; }
     }
 }

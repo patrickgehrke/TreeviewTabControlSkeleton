@@ -4,12 +4,18 @@
                       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                       xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
-                      xmlns:MyControls="clr-namespace:TreeviewTabControlSkeleton.WpfInfrastructure.Controls.Treeview;assembly=TreeviewTabControlSkeleton.WpfInfrastructure"
                       mc:Ignorable="d"
                       Title="Treeview and TabControl Skeleton" 
                       Height="1050" Width="1680"
                       WindowStartupLocation="CenterScreen"
                       Icon="..\Icons\appbar.social.github.octocat.ico">
+    <Controls:MetroWindow.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/TreeviewTabControlSkeleton.WpfInfrastructure;component/Styles/TreeViewStyle.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Controls:MetroWindow.Resources>
     
     <Viewbox Stretch="Fill" SnapsToDevicePixels="True">
         <Grid x:Name="shellviewGrid" Height="1050" Width="1680">
@@ -25,15 +31,15 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <MyControls:MyTreeview x:Name="leftTreeView" Grid.Row="1" 
-                                   Grid.Column="0" 
-                                   TreeViewEntries="{Binding TreeviewItems, UpdateSourceTrigger=PropertyChanged}"
-                                   AccentColor="{DynamicResource AccentColorBrush}"
-                                   ItemsColor="White"/>
-
             <StackPanel>
                 <Label>MENU PLACEHOLDER</Label>
             </StackPanel>
+
+            <TreeView Grid.Column="0" 
+                      Grid.Row="1"
+                      ItemsSource="{Binding TreeviewItems, UpdateSourceTrigger=PropertyChanged}"
+                      Style="{StaticResource MyTreeViewStyle}"/>
+            
             <StackPanel Grid.Row="1" Grid.Column="1" Background="DimGray">
                 <Label Content="TAB CONTROL PLACEHOLDER"/>
             </StackPanel>
