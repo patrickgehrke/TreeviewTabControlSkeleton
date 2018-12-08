@@ -20,6 +20,8 @@ namespace TreeviewTabControlSkeleton.WpfInfrastructure.ViewModels
 
         public bool IsRootNode { get; }
 
+        public bool IsExpanded { get; set; }
+
         public ObservableCollection<TreeNodeViewModel> Childs { get; set; }
     }
 }

@@ -7,6 +7,14 @@
     <Style x:Key="MyTreeViewStyle" TargetType="{x:Type TreeView}"
                                    BasedOn="{StaticResource MetroTreeView}">
 
+        <Setter Property="ItemContainerStyle">
+            <Setter.Value>
+                <Style TargetType="{x:Type TreeViewItem}" BasedOn="{StaticResource MetroTreeViewItem}">
+                    <Setter Property="IsExpanded" Value="{Binding IsExpanded, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    <Setter Property="Background" Value="Transparent"/>
+                </Style>
+            </Setter.Value>
+        </Setter>
         <Setter Property="ItemTemplate">
             <Setter.Value>
                 <HierarchicalDataTemplate ItemsSource="{Binding Childs}" DataType="{x:Type local:TreeNodeViewModel}">
