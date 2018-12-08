@@ -1,9 +1,11 @@
 ﻿<Controls:MetroWindow x:Class="TreeviewTabControlSkeleton.Ui.Views.ShellView"
-                      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                      xmlns:cal="http://www.caliburnproject.org"
                       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                       xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+                      
                       mc:Ignorable="d"
                       Title="Treeview and TabControl Skeleton" 
                       Height="1050" Width="1680"
@@ -35,10 +37,11 @@
                 <Label>MENU PLACEHOLDER</Label>
             </StackPanel>
 
-            <TreeView Grid.Column="0" 
-                      Grid.Row="1"
+            <TreeView Grid.Row="1"
+                      Grid.Column="0" 
+                      Style="{StaticResource MyTreeViewStyle}"
                       ItemsSource="{Binding TreeNodes, UpdateSourceTrigger=PropertyChanged}"
-                      Style="{StaticResource MyTreeViewStyle}"/>
+                      TreeViewItem.PreviewMouseLeftButtonDown="TreeView_PreviewMouseLeftButtonDown"/>
             
             <StackPanel Grid.Row="1" Grid.Column="1" Background="DimGray">
                 <Label Content="TAB CONTROL PLACEHOLDER"/>

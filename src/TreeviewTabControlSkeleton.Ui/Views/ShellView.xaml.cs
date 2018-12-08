@@ -1,4 +1,7 @@
 ﻿using MahApps.Metro.Controls;
+using System.Windows.Controls;
+using System.Windows.Input;
+using TreeviewTabControlSkeleton.WpfInfrastructure.ViewModels;
 
 namespace TreeviewTabControlSkeleton.Ui.Views
 {
@@ -10,6 +13,18 @@ namespace TreeviewTabControlSkeleton.Ui.Views
         public ShellView()
         {
             InitializeComponent();
+        }
+
+        private void TreeView_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            var tree = sender as TreeView;
+            if(tree != null)
+            {
+                var leaf = tree.SelectedItem as TreeNodeViewModel;
+                if (leaf != null)
+                    if (leaf.IsRootNode && e.ClickCount == 2)
+                        e.Handled = true;
+            }
         }
     }
 }
