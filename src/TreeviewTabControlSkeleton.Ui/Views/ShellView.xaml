@@ -51,7 +51,8 @@
                                               BorderThickness="1"
                                               ItemContainerStyle="{StaticResource MyTabItemHeaderStyle}"
                                               ItemsSource="{Binding Items, UpdateSourceTrigger=PropertyChanged}"
-                                              Controls:TabControlHelper.Underlined="TabPanel"/>
+                                              SelectedIndex="{Binding SelectedIndex}"
+                                              Controls:TabControlHelper.Underlined="TabPanel" />
 
             <StatusBar Background="{DynamicResource AccentColorBrush2}" Foreground="{DynamicResource AccentSelectedColorBrush}" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="2">
                 <StatusBarItem>

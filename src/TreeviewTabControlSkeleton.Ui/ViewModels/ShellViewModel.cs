@@ -1,5 +1,6 @@
 ﻿using Caliburn.Micro;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Windows.Media;
 using TreeviewTabControlSkeleton.WpfInfrastructure.Logos;
 using TreeviewTabControlSkeleton.WpfInfrastructure.ViewModels;
@@ -24,6 +25,13 @@ namespace TreeviewTabControlSkeleton.Ui.ViewModels
             base.Items.Add(new TabItemViewModel("Dashboard", false, LogoResources.PlayerProfile));
             base.Items.Add(new TabItemViewModel("First Child", false, LogoResources.PlayerProfile));
         }
+
+        public void CloseTabItem()
+        {
+            base.Items.RemoveAt(this.SelectedIndex);
+        }
+
+        public int SelectedIndex { get; set; }
 
         public string Message { get; }
 
