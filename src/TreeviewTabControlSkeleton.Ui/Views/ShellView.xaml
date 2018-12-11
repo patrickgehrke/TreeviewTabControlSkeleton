@@ -43,7 +43,8 @@
                       Background="#FF1B1B1C"
                       Style="{StaticResource MyTreeViewStyle}"
                       ItemsSource="{Binding TreeNodes, UpdateSourceTrigger=PropertyChanged}"
-                      TreeViewItem.PreviewMouseLeftButtonDown="TreeView_PreviewMouseLeftButtonDown"/>
+                      TreeViewItem.PreviewMouseLeftButtonDown="TreeView_PreviewMouseLeftButtonDown"
+                      cal:Message.Attach="[Event MouseDoubleClick] = [Action CreateTabItem($this)]"/>
 
             <Controls:MetroAnimatedTabControl Grid.Row="1" 
                                               Grid.Column="1"
@@ -51,8 +52,15 @@
                                               BorderThickness="1"
                                               ItemContainerStyle="{StaticResource MyTabItemHeaderStyle}"
                                               ItemsSource="{Binding Items, UpdateSourceTrigger=PropertyChanged}"
-                                              SelectedIndex="{Binding SelectedIndex}"
-                                              Controls:TabControlHelper.Underlined="TabPanel" />
+                                              SelectedItem="{Binding SelectedTabItem}"
+                                              Controls:TabControlHelper.Underlined="TabPanel">
+                <Controls:MetroAnimatedTabControl.ContentTemplate>
+                    <DataTemplate>
+                        <ContentControl cal:View.Model="{Binding}" />
+                        <!--activate caliburn core conventions for binding - see: https://github.com/Caliburn-Micro/Caliburn.Micro/issues/441-->
+                    </DataTemplate>
+                </Controls:MetroAnimatedTabControl.ContentTemplate>
+            </Controls:MetroAnimatedTabControl>
 
             <StatusBar Background="{DynamicResource AccentColorBrush2}" Foreground="{DynamicResource AccentSelectedColorBrush}" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="2">
                 <StatusBarItem>

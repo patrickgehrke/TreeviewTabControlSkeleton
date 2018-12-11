@@ -28,6 +28,8 @@ namespace TreeviewTabControlSkeleton.Ui.Common
             container.Register(Component.For<IWindowManager>().ImplementedBy<WindowManager>().LifeStyle.Is(LifestyleType.Singleton));
             container.Register(Component.For<ShellView>().ImplementedBy<ShellView>().LifeStyle.Is(LifestyleType.Singleton));
             container.Register(Component.For<ShellViewModel>().ImplementedBy<ShellViewModel>().LifeStyle.Is(LifestyleType.Singleton));
+            container.Register(Component.For<DummyView>().ImplementedBy<DummyView>().LifeStyle.Is(LifestyleType.Singleton));
+            container.Register(Component.For<DummyViewModel>().ImplementedBy<DummyViewModel>().LifeStyle.Is(LifestyleType.Singleton));
         }
 
         protected override void OnStartup(object sender, StartupEventArgs e)

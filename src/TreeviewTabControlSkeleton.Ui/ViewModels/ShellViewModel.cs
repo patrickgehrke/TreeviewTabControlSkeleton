@@ -17,21 +17,25 @@ namespace TreeviewTabControlSkeleton.Ui.ViewModels
 
             this.TreeNodes = new ObservableCollection<TreeNodeViewModel>();
 
-            /*will be replaced - dynamic treeview from database */
+            /*TODO: dynamic treeview from database entries */
             this.TreeNodes.Add(new TreeNodeViewModel("Dashboard", LogoResources.Database, true));
             this.TreeNodes[0].Childs = new ObservableCollection<TreeNodeViewModel>();
-            this.TreeNodes[0].Childs.Add(new TreeNodeViewModel("first child", LogoResources.PlayerProfile, false));
-
-            base.Items.Add(new TabItemViewModel("Dashboard", false, LogoResources.PlayerProfile));
-            base.Items.Add(new TabItemViewModel("First Child", false, LogoResources.PlayerProfile));
+            this.TreeNodes[0].Childs.Add(new TreeNodeViewModel("Dummy", LogoResources.PlayerProfile, false));
         }
 
         public void CloseTabItem()
         {
-            base.Items.RemoveAt(this.SelectedIndex);
+            base.DeactivateItem(this.SelectedTabItem, true);
         }
 
-        public int SelectedIndex { get; set; }
+        public void CreateTabItem(TreeNodeViewModel treeNode)
+        {
+            /*TODO: replace with CW Factory*/
+            var tabItem = new DummyViewModel(treeNode.Name, false, treeNode.Icon);
+            base.ActivateItem(tabItem);
+        }
+
+        public IScreen SelectedTabItem { get; set; }
 
         public string Message { get; }
 
