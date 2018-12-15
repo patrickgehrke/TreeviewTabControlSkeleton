@@ -14,6 +14,7 @@
     <Controls:MetroWindow.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/TreeviewTabControlSkeleton.WpfInfrastructure;component/Styles/Colors.xaml"/>
                 <ResourceDictionary Source="pack://application:,,,/TreeviewTabControlSkeleton.WpfInfrastructure;component/Styles/TreeViewStyle.xaml"/>
                 <ResourceDictionary Source="pack://application:,,,/TreeviewTabControlSkeleton.WpfInfrastructure;component/Styles/TabItemHeaderStyle.xaml"/>
             </ResourceDictionary.MergedDictionaries>
@@ -34,13 +35,16 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Background="#FF1B1B1C">
+            <StackPanel Grid.Row="0" 
+                        Grid.Column="0" 
+                        Grid.ColumnSpan="2" 
+                        Background="{StaticResource ApplicationBackground}">
                 <Label>MENU PLACEHOLDER</Label>
             </StackPanel>
             
             <TreeView Grid.Row="1"
                       Grid.Column="0"
-                      Background="#FF1B1B1C"
+                      Background="{StaticResource ApplicationBackground}"
                       Style="{StaticResource MyTreeViewStyle}"
                       ItemsSource="{Binding TreeNodes, UpdateSourceTrigger=PropertyChanged}"
                       TreeViewItem.PreviewMouseLeftButtonDown="TreeView_PreviewMouseLeftButtonDown"

@@ -8,6 +8,7 @@
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.AnimatedTabControl.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/TreeviewTabControlSkeleton.WpfInfrastructure;component/Styles/Colors.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
     <converter:LoadingStateToVisibleConverter x:Key="loadingStateToVisibleConverter"/>
@@ -16,7 +17,7 @@
     <Style x:Key="MyTabItemHeaderStyle" TargetType="{x:Type Controls:MetroTabItem}" BasedOn="{StaticResource MetroTabItem}">
         <Style.Triggers>
             <Trigger Property="IsSelected" Value="True">
-                <Setter Property="Background" Value="#FF3E3E40"/>
+                <Setter Property="Background" Value="{StaticResource TabSelectedBackground}"/>
             </Trigger>
         </Style.Triggers>
         <Setter Property="HeaderTemplate">

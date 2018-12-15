@@ -1,0 +1,7 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" >
+
+    <SolidColorBrush x:Key="ApplicationBackground">#FF1B1B1C</SolidColorBrush>
+    <SolidColorBrush x:Key="TabSelectedBackground">#FF3E3E40</SolidColorBrush>
+</ResourceDictionary>
