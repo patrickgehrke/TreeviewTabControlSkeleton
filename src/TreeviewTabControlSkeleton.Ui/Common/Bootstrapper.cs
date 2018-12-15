@@ -1,5 +1,6 @@
 ﻿using Caliburn.Micro;
 using Castle.Core;
+using Castle.Facilities.TypedFactory;
 using Castle.MicroKernel.Registration;
 using Castle.Windsor;
 using System;
@@ -14,7 +15,7 @@ namespace TreeviewTabControlSkeleton.Ui.Common
 {
     public class Bootstrapper : BootstrapperBase
     {
-        private static WindsorContainer container;
+        public static WindsorContainer Container;
 
         public Bootstrapper()
         {
@@ -23,13 +24,14 @@ namespace TreeviewTabControlSkeleton.Ui.Common
 
         protected override void Configure()
         {
-            container = new WindsorContainer();
+            Container = new WindsorContainer();
 
-            container.Register(Component.For<IWindowManager>().ImplementedBy<WindowManager>().LifeStyle.Is(LifestyleType.Singleton));
-            container.Register(Component.For<ShellView>().ImplementedBy<ShellView>().LifeStyle.Is(LifestyleType.Singleton));
-            container.Register(Component.For<ShellViewModel>().ImplementedBy<ShellViewModel>().LifeStyle.Is(LifestyleType.Singleton));
-            container.Register(Component.For<DummyView>().ImplementedBy<DummyView>().LifeStyle.Is(LifestyleType.Singleton));
-            container.Register(Component.For<DummyViewModel>().ImplementedBy<DummyViewModel>().LifeStyle.Is(LifestyleType.Singleton));
+            Container.Register(Component.For<IWindowManager>().ImplementedBy<WindowManager>().LifeStyle.Is(LifestyleType.Singleton));
+            Container.Register(Component.For<ShellView>().ImplementedBy<ShellView>().LifeStyle.Is(LifestyleType.Singleton));
+            Container.Register(Component.For<ShellViewModel>().ImplementedBy<ShellViewModel>().LifeStyle.Is(LifestyleType.Singleton));
+            Container.Register(Component.For<DummyView>().ImplementedBy<DummyView>().LifeStyle.Is(LifestyleType.Transient));
+            Container.Register(Component.For<DummyViewModel>().ImplementedBy<DummyViewModel>().LifeStyle.Is(LifestyleType.Transient));
+            Container.Register(Component.For<ITabItemGenerator>().ImplementedBy<TabItemGenerator>().LifeStyle.Is(LifestyleType.Singleton));
         }
 
         protected override void OnStartup(object sender, StartupEventArgs e)
@@ -40,14 +42,14 @@ namespace TreeviewTabControlSkeleton.Ui.Common
         protected override object GetInstance(Type service, string key)
         {
             return String.IsNullOrWhiteSpace(key)
-                ? container.Resolve(service)
-                : container.Resolve(key, service);
+                ? Container.Resolve(service)
+                : Container.Resolve(key, service);
         }
 
         protected override IEnumerable<object> GetAllInstances(Type service)
         {
             // ReSharper disable once SuspiciousTypeConversion.Global
-            return container.ResolveAll(service) as IEnumerable<object>;
+            return Container.ResolveAll(service) as IEnumerable<object>;
         }
 
         protected override void BuildUp(object instance)
@@ -57,11 +59,11 @@ namespace TreeviewTabControlSkeleton.Ui.Common
              */
             var list = instance.GetType().GetProperties()
                 .Where(property => property.CanWrite && property.PropertyType.IsPublic)
-                .Where(property => container.Kernel.HasComponent(property.PropertyType));
+                .Where(property => Container.Kernel.HasComponent(property.PropertyType));
 
             foreach (var propertyInfo in list)
             {
-                propertyInfo.SetValue(instance, container.Resolve(propertyInfo.PropertyType), null);
+                propertyInfo.SetValue(instance, Container.Resolve(propertyInfo.PropertyType), null);
             }
         }
 
@@ -76,7 +78,7 @@ namespace TreeviewTabControlSkeleton.Ui.Common
 
         protected override void OnExit(object sender, EventArgs e)
         {
-            container.Dispose();
+            Container.Dispose();
             base.OnExit(sender, e);
         }
     }

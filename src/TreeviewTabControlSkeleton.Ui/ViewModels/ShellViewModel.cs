@@ -2,6 +2,7 @@
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Windows.Media;
+using TreeviewTabControlSkeleton.Ui.Common;
 using TreeviewTabControlSkeleton.WpfInfrastructure.Logos;
 using TreeviewTabControlSkeleton.WpfInfrastructure.ViewModels;
 
@@ -9,7 +10,9 @@ namespace TreeviewTabControlSkeleton.Ui.ViewModels
 {
     public class ShellViewModel : Conductor<IScreen>.Collection.OneActive
     {
-        public ShellViewModel()
+        private readonly ITabItemGenerator tabItemGenerator;
+
+        public ShellViewModel(ITabItemGenerator viewModelFactory)
         {
             this.Message = "Hello World!";
             this.Version = "1.0 DEBUG";
@@ -21,17 +24,19 @@ namespace TreeviewTabControlSkeleton.Ui.ViewModels
             this.TreeNodes.Add(new TreeNodeViewModel("Dashboard", LogoResources.Database, true));
             this.TreeNodes[0].Childs = new ObservableCollection<TreeNodeViewModel>();
             this.TreeNodes[0].Childs.Add(new TreeNodeViewModel("Dummy", LogoResources.PlayerProfile, false));
+            this.tabItemGenerator = viewModelFactory;
         }
 
         public void CloseTabItem()
         {
-            base.DeactivateItem(base.Items[this.selectedTabIndex], true);
+            var tabItem = base.Items[this.selectedTabIndex];
+            base.DeactivateItem(tabItem, true);
+            this.tabItemGenerator.Release(tabItem);
         }
 
         public void CreateTabItem(TreeNodeViewModel treeNode)
         {
-            /*TODO: replace with CW Factory*/
-            var tabItem = new DummyViewModel(treeNode.Name, false, treeNode.Icon);
+            var tabItem = this.tabItemGenerator.Create(treeNode.Name, false, treeNode.Icon);
             base.ActivateItem(tabItem);
             this.SelectedTabIndex = base.Items.Count - 1;
         }
