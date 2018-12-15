@@ -23,44 +23,33 @@
             <Setter.Value>
                 <DataTemplate>
                     <Grid x:Name="headerGrid">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="5"/>
-                            <ColumnDefinition Width="auto"/>
-                            <ColumnDefinition Width="5"/>
-                            <ColumnDefinition Width="auto" MinWidth="100"/>
-                            <ColumnDefinition Width="5"/>
-                            <ColumnDefinition Width="auto"/>
-                            <ColumnDefinition Width="5"/>
-                        </Grid.ColumnDefinitions>
-
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="1"/>
-                            <RowDefinition Height="2"/>
-                            <RowDefinition Height="0"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="1"/>
-                            <RowDefinition Height="2"/>
+                            <RowDefinition Height="5"/>
+                            <RowDefinition Height="20"/>
                         </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="3"/>
+                            <ColumnDefinition Width="25"/>
+                            <ColumnDefinition Width="10"/>
+                            <ColumnDefinition MinWidth="100"/>
+                            <ColumnDefinition Width="10"/>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
 
                         <Viewbox AttachedProperties:VisibilityAnimation.AnimationType="Fade" 
                                  Grid.Column="1" 
-                                 Grid.Row="3"
-                                 Width="25"
-                                 Height="25"
+                                 Grid.Row="1"
                                  Visibility="{Binding CurrentLoadingState, 
                                                       Converter={StaticResource loadingStateToVisibleConverterInverted}, Mode=OneWay}">
 
                             <Path Data="{Binding Icon}" 
-                                  Fill="White" 
-                                  VerticalAlignment="Stretch" 
-                                  HorizontalAlignment="Stretch"/>
+                                  Fill="White"
+                                  Stretch="Fill"/>
                         </Viewbox>
 
                         <Controls:ProgressRing AttachedProperties:VisibilityAnimation.AnimationType="Fade"
                                                Grid.Column="1" 
-                                               Grid.Row="3" 
-                                               Width="25"
-                                               Height="25"
+                                               Grid.Row="1" 
                                                Visibility="{Binding CurrentLoadingState, 
                                                                     Converter={StaticResource loadingStateToVisibleConverter}, 
                                                                     Mode=OneWay}"  
@@ -70,15 +59,16 @@
                                                                   Mode=OneWay}" />
 
                         <TextBlock Grid.Column="3" 
-                                   Grid.Row="3"
+                                   Grid.Row="0"
+                                   Grid.RowSpan="2"
                                    FontWeight="SemiBold"
                                    FontSize="18"
-                                   HorizontalAlignment="Center" VerticalAlignment="Center"
-                                   TextAlignment="Center" Text="{Binding DisplayName}"
+                                   Text="{Binding DisplayName}"
                                    x:Name="headerTextBox"/>
 
-                        <Button Grid.Column="5" 
-                                Grid.Row="3"
+                        <Button Grid.Column="4" 
+                                Grid.Row="0"
+                                Grid.RowSpan="2"
                                 Background="Transparent" 
                                 BorderBrush="Transparent"
                                 BorderThickness="0"
