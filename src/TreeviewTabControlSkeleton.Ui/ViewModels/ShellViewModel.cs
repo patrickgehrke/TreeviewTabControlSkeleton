@@ -33,9 +33,22 @@ namespace TreeviewTabControlSkeleton.Ui.ViewModels
             /*TODO: replace with CW Factory*/
             var tabItem = new DummyViewModel(treeNode.Name, false, treeNode.Icon);
             base.ActivateItem(tabItem);
+            this.SelectedTabItem = tabItem;
         }
 
-        public IScreen SelectedTabItem { get; set; }
+        private IScreen selectedTabItem;
+        public IScreen SelectedTabItem
+        {
+            get => selectedTabItem;
+            set
+            {
+                if(null != value)
+                {
+                    this.selectedTabItem = value;
+                    base.NotifyOfPropertyChange(nameof(SelectedTabItem));
+                }
+            }
+        }
 
         public string Message { get; }
 
