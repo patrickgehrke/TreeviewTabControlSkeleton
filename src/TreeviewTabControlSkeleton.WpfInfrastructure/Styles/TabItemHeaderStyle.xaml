@@ -85,7 +85,7 @@
                             <Button.Content>
                                 <Viewbox HorizontalAlignment="Stretch" 
                                          VerticalAlignment="Stretch">
-                                    <iconPacks:PackIconMaterial Kind="Close" Width="11" Height="11" />
+                                    <iconPacks:PackIconMaterial Kind="Close"/>
                                 </Viewbox>
                             </Button.Content>
                         </Button>

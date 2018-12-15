@@ -52,7 +52,7 @@
                                               BorderThickness="1"
                                               ItemContainerStyle="{StaticResource MyTabItemHeaderStyle}"
                                               ItemsSource="{Binding Items, UpdateSourceTrigger=PropertyChanged}"
-                                              SelectedItem="{Binding SelectedTabItem}"
+                                              SelectedIndex="{Binding SelectedTabIndex, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                                               Controls:TabControlHelper.Underlined="TabPanel">
                 <Controls:MetroAnimatedTabControl.ContentTemplate>
                     <DataTemplate>

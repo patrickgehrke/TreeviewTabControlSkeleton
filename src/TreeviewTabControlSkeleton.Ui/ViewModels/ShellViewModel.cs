@@ -25,7 +25,7 @@ namespace TreeviewTabControlSkeleton.Ui.ViewModels
 
         public void CloseTabItem()
         {
-            base.DeactivateItem(this.SelectedTabItem, true);
+            base.DeactivateItem(base.Items[this.selectedTabIndex], true);
         }
 
         public void CreateTabItem(TreeNodeViewModel treeNode)
@@ -33,20 +33,18 @@ namespace TreeviewTabControlSkeleton.Ui.ViewModels
             /*TODO: replace with CW Factory*/
             var tabItem = new DummyViewModel(treeNode.Name, false, treeNode.Icon);
             base.ActivateItem(tabItem);
-            this.SelectedTabItem = tabItem;
+            this.SelectedTabIndex = base.Items.Count - 1;
         }
 
-        private IScreen selectedTabItem;
-        public IScreen SelectedTabItem
+        private int selectedTabIndex;
+        public int SelectedTabIndex
         {
-            get => selectedTabItem;
+            get => this.selectedTabIndex;
             set
             {
-                if(null != value)
-                {
-                    this.selectedTabItem = value;
-                    base.NotifyOfPropertyChange(nameof(SelectedTabItem));
-                }
+                this.selectedTabIndex = value;
+                base.NotifyOfPropertyChange(nameof(SelectedTabIndex));
+                
             }
         }
 
