@@ -3,6 +3,7 @@ using Castle.Core;
 using Castle.Facilities.TypedFactory;
 using Castle.MicroKernel.Registration;
 using Castle.Windsor;
+using MahApps.Metro.Controls.Dialogs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,6 +33,7 @@ namespace TreeviewTabControlSkeleton.Ui.Common
             Container.Register(Component.For<DummyView>().ImplementedBy<DummyView>().LifeStyle.Is(LifestyleType.Transient));
             Container.Register(Component.For<DummyViewModel>().ImplementedBy<DummyViewModel>().LifeStyle.Is(LifestyleType.Transient));
             Container.Register(Component.For<ITabItemGenerator>().ImplementedBy<TabItemGenerator>().LifeStyle.Is(LifestyleType.Singleton));
+            Container.Register(Component.For<IDialogCoordinator>().ImplementedBy<DialogCoordinator>().LifeStyle.Is(LifestyleType.Singleton));
         }
 
         protected override void OnStartup(object sender, StartupEventArgs e)

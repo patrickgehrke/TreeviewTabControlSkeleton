@@ -6,11 +6,12 @@ namespace TreeviewTabControlSkeleton.WpfInfrastructure.ViewModels
 {
     public class TreeNodeViewModel : PropertyChangedBase
     {
-        public TreeNodeViewModel(string name, PathGeometry icon, bool isRootNode)
+        public TreeNodeViewModel(string name, PathGeometry icon, bool isRootNode, bool canOpenMultipleTabItems)
         {
             this.Name = name;
             this.Icon = icon;
             this.IsRootNode = isRootNode;
+            this.CanOpenMultipleTabItems = canOpenMultipleTabItems;
             this.Childs = new ObservableCollection<TreeNodeViewModel>();
         }
 
@@ -19,6 +20,8 @@ namespace TreeviewTabControlSkeleton.WpfInfrastructure.ViewModels
         public PathGeometry Icon { get; }
 
         public bool IsRootNode { get; }
+
+        public bool CanOpenMultipleTabItems { get; }
 
         public bool IsExpanded { get; set; }
 
