@@ -7,6 +7,10 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <Label>Hello World!</Label>
+        <StackPanel>
+            <Label>Hello World!</Label>
+            <Button x:Name="SetLoadingState">SetLoadingState</Button>
+            <Button x:Name="UnsetLoadingState">UnsetLoadingState</Button>
+        </StackPanel>
     </Grid>
 </UserControl>

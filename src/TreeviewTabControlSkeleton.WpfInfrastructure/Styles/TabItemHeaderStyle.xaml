@@ -50,11 +50,13 @@
 
                         <Controls:ProgressRing AttachedProperties:VisibilityAnimation.AnimationType="Fade"
                                                Grid.Column="1" 
-                                               Grid.Row="1" 
+                                               Grid.Row="1"
+                                               Height="10"
+                                               Width="10"
                                                Visibility="{Binding CurrentLoadingState, 
                                                                     Converter={StaticResource loadingStateToVisibleConverter}, 
                                                                     Mode=OneWay}"  
-                                               Foreground="{Binding ElementName=headerTextBox, Path=Foreground}"  
+                                               Foreground="White"
                                                IsActive="{Binding CurrentLoadingState,
                                                                   Converter={StaticResource loadingStateToVisibleConverterInverted}, 
                                                                   Mode=OneWay}" />

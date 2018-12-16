@@ -1,5 +1,4 @@
-﻿using Caliburn.Micro;
-using System.Windows.Media;
+﻿using System.Windows.Media;
 using TreeviewTabControlSkeleton.WpfInfrastructure.Enums;
 using TreeviewTabControlSkeleton.WpfInfrastructure.ViewModels;
 
@@ -29,6 +28,16 @@ namespace TreeviewTabControlSkeleton.Ui.ViewModels
                 this.currentLoadingState = value;
                 this.NotifyOfPropertyChange(nameof(this.CurrentLoadingState));
             }
+        }
+
+        public void SetLoadingState()
+        {
+            this.CurrentLoadingState = LoadingState.Indeterminate;
+        }
+
+        public void UnsetLoadingState()
+        {
+            this.CurrentLoadingState = LoadingState.None;
         }
     }
 }
