@@ -100,6 +100,11 @@
     <Compile Include="Coroutines\MessageBoxCancellationResult.cs" />
     <Compile Include="Coroutines\TabItem\TabItemLoadingStateResult.cs" />
     <Compile Include="Coroutines\TabItem\TabItemMultiLoadResult.cs" />
+    <Compile Include="Installer\CaliburnMicroInstaller.cs" />
+    <Compile Include="Installer\GeneratorInstaller.cs" />
+    <Compile Include="Installer\MahAppsInstaller.cs" />
+    <Compile Include="Installer\ViewInstaller.cs" />
+    <Compile Include="Installer\ViewModelInstaller.cs" />
     <Compile Include="ViewModels\DummyViewModel.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
     <Compile Include="Views\DummyView.xaml.cs">

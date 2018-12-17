@@ -1,16 +1,14 @@
-﻿using Caliburn.Micro;
-using Castle.Core;
-using Castle.Facilities.TypedFactory;
-using Castle.MicroKernel.Registration;
-using Castle.Windsor;
-using MahApps.Metro.Controls.Dialogs;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Linq;
-using System.Reflection;
 using System.Windows;
+using System.Reflection;
+using System.Collections.Generic;
+
+using Castle.Windsor;
+using Caliburn.Micro;
+using Castle.Windsor.Installer;
+
 using TreeviewTabControlSkeleton.Ui.ViewModels;
-using TreeviewTabControlSkeleton.Ui.Views;
 
 namespace TreeviewTabControlSkeleton.Ui.Common
 {
@@ -26,14 +24,7 @@ namespace TreeviewTabControlSkeleton.Ui.Common
         protected override void Configure()
         {
             Container = new WindsorContainer();
-
-            Container.Register(Component.For<IWindowManager>().ImplementedBy<WindowManager>().LifeStyle.Is(LifestyleType.Singleton));
-            Container.Register(Component.For<ShellView>().ImplementedBy<ShellView>().LifeStyle.Is(LifestyleType.Singleton));
-            Container.Register(Component.For<ShellViewModel>().ImplementedBy<ShellViewModel>().LifeStyle.Is(LifestyleType.Singleton));
-            Container.Register(Component.For<DummyView>().ImplementedBy<DummyView>().LifeStyle.Is(LifestyleType.Transient));
-            Container.Register(Component.For<DummyViewModel>().ImplementedBy<DummyViewModel>().LifeStyle.Is(LifestyleType.Transient));
-            Container.Register(Component.For<ITabItemGenerator>().ImplementedBy<TabItemGenerator>().LifeStyle.Is(LifestyleType.Singleton));
-            Container.Register(Component.For<IDialogCoordinator>().ImplementedBy<DialogCoordinator>().LifeStyle.Is(LifestyleType.Singleton));
+            Container.Install(FromAssembly.This());
         }
 
         protected override void OnStartup(object sender, StartupEventArgs e)

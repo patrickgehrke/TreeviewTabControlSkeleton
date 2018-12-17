@@ -1,8 +1,8 @@
-﻿using Castle.MicroKernel;
-using Castle.Windsor;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Windows.Media;
+using System.Collections.Generic;
+
+using Castle.MicroKernel;
 using TreeviewTabControlSkeleton.Ui.ViewModels;
 using TreeviewTabControlSkeleton.WpfInfrastructure.ViewModels;
 
