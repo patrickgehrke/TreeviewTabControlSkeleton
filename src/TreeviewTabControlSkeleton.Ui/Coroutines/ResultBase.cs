@@ -1,7 +1,7 @@
 ﻿using System;
 using Caliburn.Micro;
 
-namespace TreeviewTabControlSkeleton.Ui.Common
+namespace TreeviewTabControlSkeleton.Ui.Coroutines
 {
     public abstract class ResultBase : IResult
     {

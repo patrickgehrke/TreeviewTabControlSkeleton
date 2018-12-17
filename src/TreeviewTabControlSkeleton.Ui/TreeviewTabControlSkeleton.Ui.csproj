@@ -95,9 +95,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Common\Bootstrapper.cs" />
-    <Compile Include="Common\ResultBase.cs" />
+    <Compile Include="Coroutines\ResultBase.cs" />
     <Compile Include="Common\TabItemGenerator.cs" />
-    <Compile Include="Coroutines\MessageBoxCancellationResult.cs" />
+    <Compile Include="Coroutines\MessageBox\MessageBoxCancellationResult.cs" />
     <Compile Include="Coroutines\TabItem\TabItemLoadingStateResult.cs" />
     <Compile Include="Coroutines\TabItem\TabItemMultiLoadResult.cs" />
     <Compile Include="Installer\CaliburnMicroInstaller.cs" />

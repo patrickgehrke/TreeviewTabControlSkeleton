@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using System.Collections.Generic;
+
 using Caliburn.Micro;
-using TreeviewTabControlSkeleton.Ui.Common;
 
 namespace TreeviewTabControlSkeleton.Ui.Coroutines.TabItem
 {

@@ -6,10 +6,10 @@ using Caliburn.Micro;
 using MahApps.Metro.Controls.Dialogs;
 
 using TreeviewTabControlSkeleton.Ui.Common;
-using TreeviewTabControlSkeleton.Ui.Coroutines;
 using TreeviewTabControlSkeleton.Ui.Coroutines.TabItem;
 using TreeviewTabControlSkeleton.WpfInfrastructure.Logos;
 using TreeviewTabControlSkeleton.WpfInfrastructure.ViewModels;
+using TreeviewTabControlSkeleton.Ui.Coroutines.MessageBox;
 
 namespace TreeviewTabControlSkeleton.Ui.ViewModels
 {

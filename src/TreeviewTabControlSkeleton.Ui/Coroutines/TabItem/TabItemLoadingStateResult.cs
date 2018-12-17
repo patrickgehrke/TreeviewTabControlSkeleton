@@ -1,5 +1,4 @@
 ﻿using Caliburn.Micro;
-using TreeviewTabControlSkeleton.Ui.Common;
 using TreeviewTabControlSkeleton.WpfInfrastructure.Enums;
 
 namespace TreeviewTabControlSkeleton.Ui.Coroutines.TabItem

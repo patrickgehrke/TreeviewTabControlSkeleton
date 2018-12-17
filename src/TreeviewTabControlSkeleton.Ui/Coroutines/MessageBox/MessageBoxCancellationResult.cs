@@ -1,8 +1,7 @@
 ﻿using Caliburn.Micro;
 using MahApps.Metro.Controls.Dialogs;
-using TreeviewTabControlSkeleton.Ui.Common;
 
-namespace TreeviewTabControlSkeleton.Ui.Coroutines
+namespace TreeviewTabControlSkeleton.Ui.Coroutines.MessageBox
 {
     public class MessageBoxCancellationResult : ResultBase
     {
