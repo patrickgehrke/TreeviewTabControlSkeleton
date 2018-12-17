@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Caliburn.Micro;
 using TreeviewTabControlSkeleton.Ui.Common;
 
-namespace TreeviewTabControlSkeleton.Ui.Coroutines
+namespace TreeviewTabControlSkeleton.Ui.Coroutines.TabItem
 {
     public class TabItemMultiLoadResult : ResultBase
     {

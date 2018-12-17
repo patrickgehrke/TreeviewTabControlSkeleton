@@ -98,7 +98,8 @@
     <Compile Include="Common\ResultBase.cs" />
     <Compile Include="Common\TabItemGenerator.cs" />
     <Compile Include="Coroutines\MessageBoxCancellationResult.cs" />
-    <Compile Include="Coroutines\TabItemMultiLoadResult.cs" />
+    <Compile Include="Coroutines\TabItem\TabItemLoadingStateResult.cs" />
+    <Compile Include="Coroutines\TabItem\TabItemMultiLoadResult.cs" />
     <Compile Include="ViewModels\DummyViewModel.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
     <Compile Include="Views\DummyView.xaml.cs">

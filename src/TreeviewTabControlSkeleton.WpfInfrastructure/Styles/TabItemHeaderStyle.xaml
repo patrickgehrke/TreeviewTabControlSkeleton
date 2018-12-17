@@ -78,7 +78,7 @@
                                 Foreground="White" 
                                 x:Name="CloseTab"
                                 cal:Action.TargetWithoutContext="{Binding}"
-                                cal:Message.Attach="CloseTabItem">
+                                cal:Message.Attach="CloseTabItem($this)">
 
                             <Button.Template>
                                 <ControlTemplate TargetType="Button" >

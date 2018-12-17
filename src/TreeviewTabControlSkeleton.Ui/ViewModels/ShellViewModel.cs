@@ -1,12 +1,15 @@
-﻿using Caliburn.Micro;
-using System.Windows.Media;
+﻿using System.Windows.Media;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
+
+using Caliburn.Micro;
+using MahApps.Metro.Controls.Dialogs;
+
 using TreeviewTabControlSkeleton.Ui.Common;
+using TreeviewTabControlSkeleton.Ui.Coroutines;
+using TreeviewTabControlSkeleton.Ui.Coroutines.TabItem;
 using TreeviewTabControlSkeleton.WpfInfrastructure.Logos;
 using TreeviewTabControlSkeleton.WpfInfrastructure.ViewModels;
-using System.Collections.Generic;
-using TreeviewTabControlSkeleton.Ui.Coroutines;
-using MahApps.Metro.Controls.Dialogs;
 
 namespace TreeviewTabControlSkeleton.Ui.ViewModels
 {
@@ -30,8 +33,12 @@ namespace TreeviewTabControlSkeleton.Ui.ViewModels
             this.TreeNodes[0].Childs.Add(new TreeNodeViewModel("Dummy", LogoResources.PlayerProfile, false, false));
         }
 
-        public void CloseTabItem()
+        public IEnumerable<IResult> CloseTabItem(ITabItemViewModel viewModel)
         {
+            yield return new TabItemLoadingStateResult(viewModel.CurrentLoadingState)
+                .WhenCancelled(() => new MessageBoxCancellationResult(dialogCoordinator,
+                                                                      "Try again later :)", 
+                                                                      "Tab is in progress.."));
             var tabItem = base.Items[this.selectedTabIndex];
             base.DeactivateItem(tabItem, true);
             this.tabItemGenerator.Release(tabItem);
