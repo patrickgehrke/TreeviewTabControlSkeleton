@@ -1,4 +1,5 @@
-﻿using System.Windows.Media;
+﻿using System;
+using System.Windows.Media;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
@@ -67,6 +68,26 @@ namespace TreeviewTabControlSkeleton.Ui.ViewModels
 
             customDialog.Content = new AboutView() { DataContext = dataContext };
             await this.dialogCoordinator.ShowMetroDialogAsync(this, customDialog);
+        }
+
+        public override async void CanClose(Action<bool> callback)
+        {
+            var mySettings = new MetroDialogSettings()
+            {
+                AffirmativeButtonText = "Quit",
+                NegativeButtonText = "Cancel",
+                AnimateShow = true,
+                AnimateHide = false
+            };
+
+            var result = await this.dialogCoordinator.
+                ShowMessageAsync(this, "Quit application?",
+                                 "Sure you want to quit application?",
+                                 MessageDialogStyle.AffirmativeAndNegative, mySettings);
+
+            var close = result == MessageDialogResult.Affirmative;
+
+            callback(close);
         }
 
         private int selectedTabIndex;
