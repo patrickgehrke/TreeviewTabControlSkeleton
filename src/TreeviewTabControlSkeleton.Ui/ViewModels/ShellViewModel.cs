@@ -10,6 +10,7 @@ using TreeviewTabControlSkeleton.Ui.Coroutines.TabItem;
 using TreeviewTabControlSkeleton.WpfInfrastructure.Logos;
 using TreeviewTabControlSkeleton.WpfInfrastructure.ViewModels;
 using TreeviewTabControlSkeleton.Ui.Coroutines.MessageBox;
+using TreeviewTabControlSkeleton.Ui.Views;
 
 namespace TreeviewTabControlSkeleton.Ui.ViewModels
 {
@@ -20,8 +21,8 @@ namespace TreeviewTabControlSkeleton.Ui.ViewModels
 
         public ShellViewModel(ITabItemGenerator tabItemGenerator, IDialogCoordinator dialogCoordinator)
         {
-            this.Message = "Hello World!";
             this.Version = "1.0 DEBUG";
+            this.Message = "Hello World!";
             this.tabItemGenerator = tabItemGenerator;
             this.dialogCoordinator = dialogCoordinator;
             this.ApplicationLogo = LogoResources.Github;
@@ -56,6 +57,18 @@ namespace TreeviewTabControlSkeleton.Ui.ViewModels
             this.SelectedTabIndex = base.Items.Count - 1;
         }
 
+        public async void OpenAbout()
+        {
+            var customDialog = new CustomDialog();
+            var dataContext = new AboutViewModel(instance =>
+            {
+                this.dialogCoordinator.HideMetroDialogAsync(this, customDialog);
+            });
+
+            customDialog.Content = new AboutView() { DataContext = dataContext };
+            await this.dialogCoordinator.ShowMetroDialogAsync(this, customDialog);
+        }
+
         private int selectedTabIndex;
         public int SelectedTabIndex
         {
@@ -64,7 +77,6 @@ namespace TreeviewTabControlSkeleton.Ui.ViewModels
             {
                 this.selectedTabIndex = value;
                 base.NotifyOfPropertyChange(nameof(SelectedTabIndex));
-                
             }
         }
 

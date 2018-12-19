@@ -1,0 +1,63 @@
+﻿<UserControl x:Class="TreeviewTabControlSkeleton.Ui.Views.AboutView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:attachedProp="clr-namespace:TreeviewTabControlSkeleton.WpfInfrastructure.AttachedProperties;assembly=TreeviewTabControlSkeleton.WpfInfrastructure"
+             xmlns:local="clr-namespace:TreeviewTabControlSkeleton.Ui.Views"
+             xmlns:cal="http://www.caliburnproject.org"
+             mc:Ignorable="d"
+             Width="475" Height="200">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="111.824"/>
+            <RowDefinition Height="39.176"/>
+            <RowDefinition Height="35"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="111"/>
+            <ColumnDefinition Width="72"/>
+            <ColumnDefinition Width="82"/>
+            <ColumnDefinition Width="83"/>
+            <ColumnDefinition Width="117"/>
+        </Grid.ColumnDefinitions>
+
+        <Image Grid.Column="0" 
+                   Grid.Row="0" 
+                   Source="..\Icons\appbar.social.github.octocat.ico"
+                   Height="100" />
+
+        <TextBlock Grid.Column="1" Grid.ColumnSpan="4" TextWrapping="Wrap" Grid.RowSpan="2">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi 
+                ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit 
+                in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia 
+                deserunt mollit anim id est laborum.
+        </TextBlock>
+
+        <TextBlock Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="7,10,6,10">
+            <Hyperlink NavigateUri="https://github.com/patrickgehrke/TreeviewTabControlSkeleton" attachedProp:HyperLinkExtension.IsExternal="true">
+                Third Party License
+            </Hyperlink>
+        </TextBlock>
+
+        <TextBlock Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="14,10,13,10">
+            <Hyperlink NavigateUri="https://github.com/patrickgehrke/TreeviewTabControlSkeleton" attachedProp:HyperLinkExtension.IsExternal="true">
+                Patchlog
+            </Hyperlink>
+        </TextBlock>
+
+        <TextBlock Grid.Row="2" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="21,10">
+            <Hyperlink NavigateUri="https://github.com/patrickgehrke/TreeviewTabControlSkeleton" attachedProp:HyperLinkExtension.IsExternal="true">
+                Tutorial
+            </Hyperlink>
+        </TextBlock>
+
+        <Button Grid.Row="2" 
+                Grid.Column="4"
+                Content="Close" 
+                cal:Message.Attach="[Event Click] = [Action Close]"/>
+    </Grid>
+</UserControl>
