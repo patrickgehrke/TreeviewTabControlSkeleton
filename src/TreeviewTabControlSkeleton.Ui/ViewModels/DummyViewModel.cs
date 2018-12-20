@@ -1,6 +1,6 @@
 ﻿using System.Windows.Media;
 using TreeviewTabControlSkeleton.WpfInfrastructure.Enums;
-using TreeviewTabControlSkeleton.WpfInfrastructure.ViewModels;
+using TreeviewTabControlSkeleton.WpfInfrastructure.ViewModelContracts;
 
 namespace TreeviewTabControlSkeleton.Ui.ViewModels
 {

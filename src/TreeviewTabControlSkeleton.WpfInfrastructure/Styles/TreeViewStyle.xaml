@@ -1,6 +1,6 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:local="clr-namespace:TreeviewTabControlSkeleton.WpfInfrastructure.ViewModels"
+                    xmlns:local="clr-namespace:TreeviewTabControlSkeleton.WpfInfrastructure.Models"
                     xmlns:converter="clr-namespace:TreeviewTabControlSkeleton.WpfInfrastructure.Converter">
     <converter:ToUpperValueConverter x:Key="ToUpperConverter"/>
     
@@ -17,7 +17,7 @@
         </Setter>
         <Setter Property="ItemTemplate">
             <Setter.Value>
-                <HierarchicalDataTemplate ItemsSource="{Binding Childs}" DataType="{x:Type local:TreeNodeViewModel}">
+                <HierarchicalDataTemplate ItemsSource="{Binding Childs}" DataType="{x:Type local:TreeNodeModel}">
                     <Grid x:Name="treeviewItemGrid" VerticalAlignment="Center">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="18"/>

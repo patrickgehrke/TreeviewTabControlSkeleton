@@ -1,18 +1,19 @@
-﻿using Caliburn.Micro;
+﻿using System.Windows.Media;
 using System.Collections.ObjectModel;
-using System.Windows.Media;
 
-namespace TreeviewTabControlSkeleton.WpfInfrastructure.ViewModels
+using Caliburn.Micro;
+
+namespace TreeviewTabControlSkeleton.WpfInfrastructure.Models
 {
-    public class TreeNodeViewModel : PropertyChangedBase
+    public class TreeNodeModel : PropertyChangedBase
     {
-        public TreeNodeViewModel(string name, PathGeometry icon, bool isRootNode, bool canOpenMultipleTabItems)
+        public TreeNodeModel(string name, PathGeometry icon, bool isRootNode, bool canOpenMultipleTabItems)
         {
             this.Name = name;
             this.Icon = icon;
             this.IsRootNode = isRootNode;
             this.CanOpenMultipleTabItems = canOpenMultipleTabItems;
-            this.Childs = new ObservableCollection<TreeNodeViewModel>();
+            this.Childs = new ObservableCollection<TreeNodeModel>();
         }
 
         public string Name { get; }
@@ -25,6 +26,6 @@ namespace TreeviewTabControlSkeleton.WpfInfrastructure.ViewModels
 
         public bool IsExpanded { get; set; }
 
-        public ObservableCollection<TreeNodeViewModel> Childs { get; set; }
+        public ObservableCollection<TreeNodeModel> Childs { get; set; }
     }
 }

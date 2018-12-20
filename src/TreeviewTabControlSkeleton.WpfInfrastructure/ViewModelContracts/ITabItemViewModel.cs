@@ -1,7 +1,7 @@
 ﻿using System.Windows.Media;
 using TreeviewTabControlSkeleton.WpfInfrastructure.Enums;
 
-namespace TreeviewTabControlSkeleton.WpfInfrastructure.ViewModels
+namespace TreeviewTabControlSkeleton.WpfInfrastructure.ViewModelContracts
 {
     public interface ITabItemViewModel
     {

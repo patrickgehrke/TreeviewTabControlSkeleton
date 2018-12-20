@@ -6,12 +6,13 @@ using System.Collections.ObjectModel;
 using Caliburn.Micro;
 using MahApps.Metro.Controls.Dialogs;
 
+using TreeviewTabControlSkeleton.Ui.Views;
 using TreeviewTabControlSkeleton.Ui.Common;
 using TreeviewTabControlSkeleton.Ui.Coroutines.TabItem;
 using TreeviewTabControlSkeleton.WpfInfrastructure.Logos;
-using TreeviewTabControlSkeleton.WpfInfrastructure.ViewModels;
+using TreeviewTabControlSkeleton.WpfInfrastructure.Models;
 using TreeviewTabControlSkeleton.Ui.Coroutines.MessageBox;
-using TreeviewTabControlSkeleton.Ui.Views;
+using TreeviewTabControlSkeleton.WpfInfrastructure.ViewModelContracts;
 
 namespace TreeviewTabControlSkeleton.Ui.ViewModels
 {
@@ -27,12 +28,12 @@ namespace TreeviewTabControlSkeleton.Ui.ViewModels
             this.tabItemGenerator = tabItemGenerator;
             this.dialogCoordinator = dialogCoordinator;
             this.ApplicationLogo = LogoResources.Github;
-            this.TreeNodes = new ObservableCollection<TreeNodeViewModel>();
+            this.TreeNodes = new ObservableCollection<TreeNodeModel>();
 
             /*TODO: dynamic treeview from database entries */
-            this.TreeNodes.Add(new TreeNodeViewModel("Dashboard", LogoResources.Database, true, false));
-            this.TreeNodes[0].Childs = new ObservableCollection<TreeNodeViewModel>();
-            this.TreeNodes[0].Childs.Add(new TreeNodeViewModel("Dummy", LogoResources.PlayerProfile, false, false));
+            this.TreeNodes.Add(new TreeNodeModel("Dashboard", LogoResources.Database, true, false));
+            this.TreeNodes[0].Childs = new ObservableCollection<TreeNodeModel>();
+            this.TreeNodes[0].Childs.Add(new TreeNodeModel("Dummy", LogoResources.PlayerProfile, false, false));
         }
 
         public IEnumerable<IResult> CloseTabItem(ITabItemViewModel viewModel)
@@ -46,7 +47,7 @@ namespace TreeviewTabControlSkeleton.Ui.ViewModels
             this.tabItemGenerator.Release(tabItem);
         }
 
-        public IEnumerable<IResult> CreateTabItem(TreeNodeViewModel treeNode)
+        public IEnumerable<IResult> CreateTabItem(TreeNodeModel treeNode)
         {
             yield return new TabItemMultiLoadResult(treeNode.Name, treeNode.CanOpenMultipleTabItems, base.Items)
                 .WhenCancelled(() => new MessageBoxCancellationResult(dialogCoordinator, 
@@ -107,6 +108,6 @@ namespace TreeviewTabControlSkeleton.Ui.ViewModels
 
         public PathGeometry ApplicationLogo { get; }
 
-        public ObservableCollection<TreeNodeViewModel> TreeNodes { get; set; }
+        public ObservableCollection<TreeNodeModel> TreeNodes { get; set; }
     }
 }

@@ -75,10 +75,10 @@
     <Compile Include="Enums\LoadingState.cs" />
     <Compile Include="Logos\LogoResources.cs" />
     <Compile Include="Logos\SharedResourceDictionary.cs" />
+    <Compile Include="Models\TreeNodeModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ViewModels\ITabItemViewModel.cs" />
-    <Compile Include="ViewModels\TreeNodeViewModel.cs" />
-    <Compile Include="ViewModels\ViewModelBase.cs" />
+    <Compile Include="ViewModelContracts\ITabItemViewModel.cs" />
+    <Compile Include="ViewModelContracts\ViewModelBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

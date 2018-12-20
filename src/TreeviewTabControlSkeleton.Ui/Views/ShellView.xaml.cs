@@ -1,7 +1,7 @@
 ﻿using MahApps.Metro.Controls;
 using System.Windows.Controls;
 using System.Windows.Input;
-using TreeviewTabControlSkeleton.WpfInfrastructure.ViewModels;
+using TreeviewTabControlSkeleton.WpfInfrastructure.Models;
 
 namespace TreeviewTabControlSkeleton.Ui.Views
 {
@@ -20,7 +20,7 @@ namespace TreeviewTabControlSkeleton.Ui.Views
             var tree = sender as TreeView;
             if(tree != null)
             {
-                var leaf = tree.SelectedItem as TreeNodeViewModel;
+                var leaf = tree.SelectedItem as TreeNodeModel;
                 if (leaf != null)
                     if (leaf.IsRootNode && e.ClickCount == 2)
                         e.Handled = true;

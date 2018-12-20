@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 using Castle.MicroKernel;
 using TreeviewTabControlSkeleton.Ui.ViewModels;
-using TreeviewTabControlSkeleton.WpfInfrastructure.ViewModels;
+using TreeviewTabControlSkeleton.WpfInfrastructure.ViewModelContracts;
 
 namespace TreeviewTabControlSkeleton.Ui.Common
 {
