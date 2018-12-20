@@ -96,10 +96,11 @@
     </Compile>
     <Compile Include="Common\Bootstrapper.cs" />
     <Compile Include="Coroutines\ResultBase.cs" />
-    <Compile Include="Common\TabItemGenerator.cs" />
+    <Compile Include="Generators\TabItemGenerator.cs" />
     <Compile Include="Coroutines\MessageBox\MessageBoxCancellationResult.cs" />
     <Compile Include="Coroutines\TabItem\TabItemLoadingStateResult.cs" />
     <Compile Include="Coroutines\TabItem\TabItemMultiLoadResult.cs" />
+    <Compile Include="Generators\TreeViewGenerator.cs" />
     <Compile Include="Installer\CaliburnMicroInstaller.cs" />
     <Compile Include="Installer\GeneratorInstaller.cs" />
     <Compile Include="Installer\MahAppsInstaller.cs" />

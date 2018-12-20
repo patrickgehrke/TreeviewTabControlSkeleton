@@ -3,10 +3,12 @@ using System.Windows.Media;
 using System.Collections.Generic;
 
 using Castle.MicroKernel;
+using TreeviewTabControlSkeleton.Ui.Common;
 using TreeviewTabControlSkeleton.Ui.ViewModels;
 using TreeviewTabControlSkeleton.WpfInfrastructure.ViewModelContracts;
 
-namespace TreeviewTabControlSkeleton.Ui.Common
+
+namespace TreeviewTabControlSkeleton.Ui.Generators
 {
     public class TabItemGenerator : ITabItemGenerator
     {

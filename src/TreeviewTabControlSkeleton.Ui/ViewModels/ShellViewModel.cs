@@ -7,7 +7,7 @@ using Caliburn.Micro;
 using MahApps.Metro.Controls.Dialogs;
 
 using TreeviewTabControlSkeleton.Ui.Views;
-using TreeviewTabControlSkeleton.Ui.Common;
+using TreeviewTabControlSkeleton.Ui.Generators;
 using TreeviewTabControlSkeleton.Ui.Coroutines.TabItem;
 using TreeviewTabControlSkeleton.WpfInfrastructure.Logos;
 using TreeviewTabControlSkeleton.WpfInfrastructure.Models;
@@ -19,21 +19,20 @@ namespace TreeviewTabControlSkeleton.Ui.ViewModels
     public class ShellViewModel : Conductor<IScreen>.Collection.OneActive
     {
         private readonly ITabItemGenerator tabItemGenerator;
+        private readonly ITreeViewGenerator treeViewGenerator;
         private readonly IDialogCoordinator dialogCoordinator;
 
-        public ShellViewModel(ITabItemGenerator tabItemGenerator, IDialogCoordinator dialogCoordinator)
+        public ShellViewModel(ITabItemGenerator tabItemGenerator, 
+                              ITreeViewGenerator treeViewGenerator,
+                              IDialogCoordinator dialogCoordinator)
         {
             this.Version = "1.0 DEBUG";
             this.Message = "Hello World!";
             this.tabItemGenerator = tabItemGenerator;
+            this.treeViewGenerator = treeViewGenerator;
             this.dialogCoordinator = dialogCoordinator;
             this.ApplicationLogo = LogoResources.Github;
-            this.TreeNodes = new ObservableCollection<TreeNodeModel>();
-
-            /*TODO: dynamic treeview from database entries */
-            this.TreeNodes.Add(new TreeNodeModel("Dashboard", LogoResources.Database, true, false));
-            this.TreeNodes[0].Childs = new ObservableCollection<TreeNodeModel>();
-            this.TreeNodes[0].Childs.Add(new TreeNodeModel("Dummy", LogoResources.PlayerProfile, false, false));
+            this.TreeNodes = this.treeViewGenerator.Generate();
         }
 
         public IEnumerable<IResult> CloseTabItem(ITabItemViewModel viewModel)

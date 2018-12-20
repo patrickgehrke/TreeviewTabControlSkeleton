@@ -3,7 +3,7 @@ using Castle.Windsor;
 using Castle.MicroKernel.Registration;
 using Castle.MicroKernel.SubSystems.Configuration;
 
-using TreeviewTabControlSkeleton.Ui.Common;
+using TreeviewTabControlSkeleton.Ui.Generators;
 
 namespace TreeviewTabControlSkeleton.Ui.Installer
 {
@@ -12,6 +12,7 @@ namespace TreeviewTabControlSkeleton.Ui.Installer
         public void Install(IWindsorContainer container, IConfigurationStore store)
         {
             container.Register(Component.For<ITabItemGenerator>().ImplementedBy<TabItemGenerator>().LifeStyle.Is(LifestyleType.Singleton));
+            container.Register(Component.For<ITreeViewGenerator>().ImplementedBy<TreeViewGenerator>().LifeStyle.Is(LifestyleType.Singleton));
         }
     }
 }
